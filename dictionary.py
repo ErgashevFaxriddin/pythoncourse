@@ -87,10 +87,65 @@ pydic = {
 }
 
 
-kalit = input('kalit soz kiriting: ').lower()
-# print(pydic.get(kalit, 'Bunday so\'z mavjud emas'))
-tarjima = pydic.get(kalit)
-if tarjima == None:
-    print('Bunday so\'z mavjud emas')
-else:
-    print(f"{kalit.title()} so'zi {tarjima} deb tarjima qilinadi")
+# kalit = input('kalit soz kiriting: ').lower()
+# # print(pydic.get(kalit, 'Bunday so\'z mavjud emas'))
+# tarjima = pydic.get(kalit)
+# if tarjima == None:
+#     print('Bunday so\'z mavjud emas')
+# else:
+#     print(f"{kalit.title()} so'zi {tarjima} deb tarjima qilinadi")
+
+
+# for key, value in pydic.items():
+#     print(f"kalit: {key.title()}\nQiymat: {value}")
+
+# for key, value in pydic.items():
+#     print(f"{key.title()}ning ma'nosi: {value.title()}")
+
+# print(pydic.keys())
+
+# for keys in pydic:
+#     print(keys.title())
+
+# print("python izohli lug'ati:\n")
+# for i in pydic.keys():
+#     print(i.title())
+
+# print("python izohli lug'ati:\n")
+# for i in sorted(pydic):
+#     print(i.title())
+
+# print("python izohli lug'ati:\n")
+# # print(pydic.values())
+# for i in pydic.values():
+#     print(i)
+
+# for key, value in sorted(pydic.items()):
+#     print(key, value)
+
+davlatlar = {
+    'usa':'washington',
+    'uzbekistan':'tashkent',
+    'korea':'seul'
+}
+
+capital = input('davlat kiriing: ').lower()
+response = davlatlar.get(capital, f"{capital.title()} topilmadi")
+print(response.title())
+
+# # for key, value in davlatlar.items():
+# #     print(key,)
+# #     print(value)
+
+# user = input('davlat kiriting: ').lower()
+# capital = davlatlar.get(user, 'Bunday davlat mavjud emas')
+# print(capital)
+
+# menu = {
+#     'osh':25000,
+#     'manti':3000,
+#     'somsa':4000
+# }
+# user = input('taom tanalng:').lower()
+# narx = menu.get(user, 'Bunday taom mevjud emas')
+# print(narx)
