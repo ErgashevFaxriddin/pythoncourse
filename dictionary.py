@@ -123,15 +123,15 @@ pydic = {
 # for key, value in sorted(pydic.items()):
 #     print(key, value)
 
-davlatlar = {
-    'usa':'washington',
-    'uzbekistan':'tashkent',
-    'korea':'seul'
-}
+# davlatlar = {
+#     'usa':'washington',
+#     'uzbekistan':'tashkent',
+#     'korea':'seul'
+# }
 
-capital = input('davlat kiriing: ').lower()
-response = davlatlar.get(capital, f"{capital.title()} topilmadi")
-print(response.title())
+# capital = input('davlat kiriing: ').lower()
+# response = davlatlar.get(capital, f"{capital.title()} topilmadi")
+# print(response.title())
 
 # # for key, value in davlatlar.items():
 # #     print(key,)
@@ -146,6 +146,76 @@ print(response.title())
 #     'manti':3000,
 #     'somsa':4000
 # }
-# user = input('taom tanalng:').lower()
-# narx = menu.get(user, 'Bunday taom mevjud emas')
+# taom = input('taom tanalng:').lower()
+# narx = menu.get(taom, 'Bunday taom mevjud emas')
 # print(narx)
+
+# shaharlar = {
+#     'Toshkent':3058.4,
+#     'Samarqand ':4227.3,
+#     'Farg\'ona ':4079.5,
+#     'Andijon ':3409
+# }
+# for key, value in shaharlar:
+#     shahar = f"{value} inson bor"
+#     print(shahar)
+
+# salon = {
+#     'audi':21000,
+#     'bmw':25000,
+#     'tesla':18000
+# }
+# car = input('mashina tanlang:').lower()
+# narx = salon.get(car, f"{car} yo'q")
+# print(narx)
+
+# mevalar = {
+#     'olma':5000,
+#     'mandarin':25000
+# }
+# meva = input('meva tanlang: ').lower()
+# narx = mevalar.get(meva, 'yo\'q')
+# print(narx)
+
+# print('shaharlar lugatini yaratamiz')
+# shaharlar = {}
+# shahar = input('shahar: ')
+# aholisoni = int(input('aholi sonini: '))
+# shaharlar[shahar] = aholisoni
+# print(f"yangi lugat: ", shaharlar )
+
+# davlatlar = {
+#     'uzbekistan' : 'tashkent',
+#     'rossiya' : 'moskva'
+# }
+# davlat = input('davlat: ')
+# poytaxt = davlatlar.get(davlat, 'yo\'q')
+# print(poytaxt)
+
+# Restoran menusi lug'atini tuzing (kamida 10 ta taom-narh juftligini kiriting). 
+# Foydalanuvchidan 3 ta ovqat buyurtma berishni so'rang. 
+# Foydalanuvchi kiritgan taomlarni menu bilan solishtiring, 
+# agar taom menuda bo'lsa narhini ko'rsating, 
+# aks holda "bizda bunday taom yo'q" degan xabarni chiqaring.
+
+
+menu = {
+    'manti': 7000,  # 5000 qiymati bekor bo‘ladi
+    'palov': 20000,
+    'shashlik': 10000
+}
+savat = {}
+
+print('3 ta taom kiriting')
+for i in range(3):
+    taom = input(f"{i+1}-taom: ").lower()  # Katta-kichik harflarni inobatga olish uchun
+    if taom in menu:
+        savat[taom] = menu[taom]
+    else:
+        savat[taom] = None
+
+for taom, narx in savat.items():
+    if narx:
+        print(f"{taom} - {narx} som")
+    else:
+        print("bizda bunday taom yo'q")
