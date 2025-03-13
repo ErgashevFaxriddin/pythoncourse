@@ -199,23 +199,157 @@ pydic = {
 # aks holda "bizda bunday taom yo'q" degan xabarni chiqaring.
 
 
-menu = {
-    'manti': 7000,  # 5000 qiymati bekor bo‘ladi
-    'palov': 20000,
-    'shashlik': 10000
+# menu = {
+#     'manti': 7000,  
+#     'palov': 20000,
+#     'shashlik': 10000
+# }
+# savat = {}
+
+# print('3 ta taom kiriting')
+# for i in range(3):
+#     taom = input(f"{i+1}-taom: ").lower()  
+#     if taom in menu:
+#         savat[taom] = menu[taom]
+#     else:
+#         savat[taom] = None
+
+# for taom, narx in savat.items():
+#     if narx:
+#         print(f"{taom} - {narx} som")
+#     else:
+#         print("bizda bunday taom yo'q")
+
+
+# Adabiyot (ilm-fan, san'at, internet) olamidagi 4 ta mashxur shaxlar haqidagi 
+# ma'lumotlarni lug'at ko'rinishida saqlang. 
+# Lug'atlarni bitta ro'yxatga joylang, 
+# va har bir shaxs haqidagi ma'lumotni konsolga chiqaring
+
+# shaxslar = {
+#     melod1st : {
+#         'ism' : 'faxriddin',
+#         'kasb' : 'python web develooper',
+#         'instagram' : 'melod1st'
+#     },
+#     najmiddin : {
+#         'ism' : 'najmiddin',
+#         'kasb' : 'javaScipt web develooper',
+#         'instagram' : 'najmiddin_life'
+#     },
+#     melod1st : {
+#         'ism' : 'behruz',
+#         'kasb' : 'trader',
+#         'instagram' : 'bekhruz'
+#     }
+
+# }
+
+# melod1st = {
+#     'ism': 'Faxriddin',
+#     'kasb': 'Python Web Developer',
+#     'yosh': 20,
+#     'asar': ['Piano', 'Python']
+# }
+# najmiddin = {
+#     'ism': 'Najmiddin',
+#     'kasb': 'JavaScript Web Developer',
+#     'yosh': 19,
+#     'asar': ['Mumtoz', 'Piyola']
+# }
+# bexruz = {
+#     'ism': 'Bekhruz',
+#     'kasb': 'Trader',
+#     'yosh': 18,
+#     'asar': ['Inson Qasidasi', 'Vaqt']
+# }
+
+# shaxslar = [melod1st, najmiddin, bexruz]
+
+# for shaxs in shaxslar:
+#     print(f"{shaxs['ism'].title()}ning kasbi {shaxs['kasb']} va u {shaxs['yosh']} yoshda.")
+
+#     print(f"{shaxs['ism']}ning asarlari:")
+#     for i in shaxs['asar']:
+#         print(f" - {i}")
+#     print()
+
+# Davlatlar degan lug'at yarating, 
+# lug'at ichida bir nechta davlatlar haqida ma'lumotlarni lug'at ko'rinishida saqlang. 
+# Har bir davlat haqida ma'lumotni konsolga chiqaring
+
+# davlatlar = {
+#     'uzb': {
+#     'poytaxt': 'toshkent',
+#     'aholi': 37.5,
+#     'mintaqa': "o'rta osiyo",
+#     'prezident': 'sh. m. mirziyoyev',
+#     'valyuta': 'som'
+#     },
+#     'rus': {
+#         'poytaxt': 'moskva',
+#         'aholi': 146,
+#         'mintaqa': "sharqiy yevropa",
+#         'prezident': 'vladimir putin',
+#         'valyuta': 'rubl'
+#     },
+#     'italia': {
+#         'poytaxt': 'rome',
+#         'aholi': 58.9,
+#         'mintaqa': "shimoliy yevropa",
+#         'prezident': 'sergio matarella',
+#         'valyuta': 'the euro'
+#     },
+#     'germaniya': {
+#         'poytaxt': 'berlin',
+#         'aholi': 84.75,
+#         'mintaqa': "central europe",
+#         'prezident': 'Frank-Walter Steinmeier',
+#         'valyuta': 'the euro'
+#     }
+# }
+
+# for davlat, info in davlatlar.items():
+#     print(f"{davlat}: {info['poytaxt']}")
+#     print(f"aholi soni: {info['aholi']}")
+#     print(f"hudud: {info['mintaqa']}")
+#     print(f"prezident: {davlat['prezident']}")
+#     print(f"pul birligi: {davlat['valyuta']}")
+
+davlatlar = {
+    'uzb': {
+        'poytaxt': 'Toshkent',
+        'aholi': 37.5,
+        'mintaqa': "O'rta Osiyo",
+        'prezident': 'Sh. M. Mirziyoyev',
+        'valyuta': 'So‘m'
+    },
+    'rus': {
+        'poytaxt': 'Moskva',
+        'aholi': 146,
+        'mintaqa': "Sharqiy Yevropa",
+        'prezident': 'Vladimir Putin',
+        'valyuta': 'Rubl'
+    },
+    'italia': {
+        'poytaxt': 'Rim',
+        'aholi': 58.9,
+        'mintaqa': "Janubiy Yevropa",
+        'prezident': 'Sergio Mattarella',
+        'valyuta': 'Yevro'
+    },
+    'germaniya': {
+        'poytaxt': 'Berlin',
+        'aholi': 84.75,
+        'mintaqa': "Markaziy Yevropa",
+        'prezident': 'Frank-Walter Steinmeier',
+        'valyuta': 'Yevro'
+    }
 }
-savat = {}
 
-print('3 ta taom kiriting')
-for i in range(3):
-    taom = input(f"{i+1}-taom: ").lower()  # Katta-kichik harflarni inobatga olish uchun
-    if taom in menu:
-        savat[taom] = menu[taom]
-    else:
-        savat[taom] = None
-
-for taom, narx in savat.items():
-    if narx:
-        print(f"{taom} - {narx} som")
-    else:
-        print("bizda bunday taom yo'q")
+for davlat, info in davlatlar.items():
+    print(f"{davlat.upper()}: {info['poytaxt']}")
+    print(f"Aholi soni: {info['aholi']} mln")
+    print(f"Hudud: {info['mintaqa']}")
+    print(f"Prezident: {info['prezident']}")
+    print(f"Pul birligi: {info['valyuta']}\n")
