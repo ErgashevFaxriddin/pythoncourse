@@ -317,14 +317,14 @@ pydic = {
 #     print(f"pul birligi: {davlat['valyuta']}")
 
 davlatlar = {
-    'uzb': {
+    'uzbekistan': {
         'poytaxt': 'Toshkent',
         'aholi': 37.5,
         'mintaqa': "O'rta Osiyo",
         'prezident': 'Sh. M. Mirziyoyev',
         'valyuta': 'So‘m'
     },
-    'rus': {
+    'russia': {
         'poytaxt': 'Moskva',
         'aholi': 146,
         'mintaqa': "Sharqiy Yevropa",
@@ -347,9 +347,72 @@ davlatlar = {
     }
 }
 
-for davlat, info in davlatlar.items():
-    print(f"{davlat.upper()}: {info['poytaxt']}")
-    print(f"Aholi soni: {info['aholi']} mln")
-    print(f"Hudud: {info['mintaqa']}")
-    print(f"Prezident: {info['prezident']}")
-    print(f"Pul birligi: {info['valyuta']}\n")
+# for davlat, info in davlatlar.items():
+#     print(f"{davlat.upper()}: {info['poytaxt']}")
+#     print(f"Aholi soni: {info['aholi']} mln")
+#     print(f"Hudud: {info['mintaqa']}")
+#     print(f"Prezident: {info['prezident']}")
+#     print(f"Pul birligi: {info['valyuta']}\n")
+
+
+# Yuqoridagi dasturga o'zgartirish kiriting: konsolga barcha davlatlarni emas, 
+# foydalanuvchi so'ragan davlat haqida ma'lumot bering. 
+# Agar davlat sizning lug'atingizda mavjud bo'lmasa, 
+# "Bizda bu davlat haqida ma'lumot yo'q" degan xabarni chiqaring.
+
+# davlat = input(f"Davlat nomi: ").lower()
+# if davlat in davlatlar:
+#     info = davlatlar[davlat]
+#     print(f"Poytaxti: {info['poytaxt'].title()}")
+#     print(f"Aholisi: {info['aholi']} mln")
+#     print(f"Mintaqa: {info['mintaqa']}")
+#     print(f"Pul birligi: {info['valyuta']}")
+# else:
+#     print(f"{davlat} haqida ma'lumot yo'q")
+
+
+
+# Siz universitet talabalarining ma’lumotlarini saqlaydigan dastur yozishingiz kerak. 
+# Har bir talabaning quyidagi ma’lumotlari bo‘ladi
+talabalar = {
+    'Najmiddin': {
+        'ism': 'Najmiddin',
+        'yosh': 20,
+        'major': 'Digital Economy',
+        'fanlar': ['Raqamli iqtisodiyot asoslari', 'Kompyuter Tarmoqlari'],
+        'ball': [21, 23, 54, 67]
+    },
+    'Muhammadyahyo': {
+        'ism': 'Muhammadyahyo',
+        'yosh': 19,
+        'major': 'Digital Economy',
+        'fanlar': ['Raqamli iqtisodiyot asoslari', 'Kompyuter Tarmoqlari', 'Ma\'lumotlar Bazasi'],
+        'ball': [21, 23, 54, 123]
+    },
+    'Lazizbek': {
+        'ism': 'Lazizbek',
+        'yosh': 21,
+        'major': 'Digital Economy',
+        'fanlar': ['Raqamli iqtisodiyot asoslari', 'Kompyuter Tarmoqlari', 'Ma\'lumotlar Bazasi', 'pul, kredit va banklar'],
+        'ball': [21, 23, 90, 54]
+    }
+}
+talaba = input('talaba ismini kiriting: ').title()
+if talaba in talabalar:
+    info = talabalar[talaba]
+    print(f"Ismi: {info['ism'].title()}")
+    print(f"yosh: {info['yosh']}")
+    print(f"mutaxasisilgi: {info['major']}")
+    for fan in info['fanlar']:
+        print(f"yiqilgan fanlari: {fan}")
+    # print(f"yiqilgan fanlari: ", ", ".join(info['fanlar']))
+else:
+    print(f"Bizda {talaba.title()} ismli talaba yo'q")
+
+# # mevalar = ['olma', 'behi', 'uzum']
+# # print(f"mevalar: ", ", ".join(mevalar))
+
+# for talaba, info in talabalar.items():
+#     total_ball = sum(info['ball'])
+#     average = total_ball // len(info['ball'])
+#     print(f"{info['ism']}ning umumiy balli: {total_ball}, o'rtacha balli: {average}")
