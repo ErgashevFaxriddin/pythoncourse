@@ -397,6 +397,9 @@ talabalar = {
         'ball': [21, 23, 90, 54]
     }
 }
+
+addtalaba = input(f"Talaba kiriting: ")
+
 talaba = input('talaba ismini kiriting: ').title()
 if talaba in talabalar:
     info = talabalar[talaba]
@@ -416,3 +419,4 @@ else:
 #     total_ball = sum(info['ball'])
 #     average = total_ball // len(info['ball'])
 #     print(f"{info['ism']}ning umumiy balli: {total_ball}, o'rtacha balli: {average}")
+
