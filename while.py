@@ -55,17 +55,90 @@
 #         continue
 #     print(son)
 
-# Foydalanuvchidan yaxshi ko'rgan kitoblarini kiritishni so'rang. 
-# Foydalanuvchi stop so'zini yozishi bilan dasturni to'xtating
-son = 0
-kitoblar = []
-kitob = ''
-ishora = True
-while ishora:
-    son +=1
-    kitob = input(f"{son}-kitob: ")
-    kitoblar.append(kitob)
-    if kitob == 'x':
+# # Foydalanuvchidan yaxshi ko'rgan kitoblarini kiritishni so'rang. 
+# # Foydalanuvchi stop so'zini yozishi bilan dasturni to'xtating
+# son = 0
+# kitoblar = []
+# kitob = ''
+# ishora = True
+# while ishora:
+#     son +=1
+#     kitob = input(f"{son}-kitob: ")
+#     kitoblar.append(kitob)
+#     if kitob == 'x':
+#         break
+# for kitob in kitoblar:
+#     print(kitob)
+
+# # Muzeyga chipta narhi foydalanuvchining yoshiga bog'liq: 
+# # 7 dan yoshlarga - 2000 so'm, 7-18 gacha 3000 so'm, 
+# # 18-65 gacha 10000 so'm, 65 dan kattalarga bepul. 
+# # Shunday while tsikl yozingki, 
+# # dastur foydalanuvchi yoshini so'rasin va chipta narhini chiqarsin. 
+# # Foydalanuvchi exit yoki quit deb yozganda dastur to'xtasin (ikkita shartni ham tekshiring).
+# while True:
+#     yosh = input("Yoshingizni kiriting (exit yoki quit - to'xtatish): ")
+#     if yosh.lower() in ['exit', 'quit']:
+#         break
+#     yosh = int(yosh)
+#     if yosh < 7:
+#         narx = 0
+#     elif yosh >= 7 and yosh < 18:
+#         narx = 2000
+#     elif yosh >= 18 and yosh < 65:
+#         narx = 10000
+#     else:
+#         narx = 0
+#     print(f"Sizga chipta narxi: {narx} so'm")
+
+# ishora = True
+# while ishora:
+#     yosh = input('yosh: ')
+#     if yosh.lower() == 'quit':
+#         break
+#     if not yosh.isdigit():
+#         print('❌RAQAM KIRITING❌')
+#         continue
+#     yosh = int(yosh)
+#     if yosh < 7:
+#         narx = 0
+#     elif yosh >= 7 and yosh < 18:
+#         narx = 2000
+#     elif yosh >= 18 and yosh < 65:
+#         narx = 10000
+#     else:
+#         narx = 0
+#     print(f"Sizga chipta narxi: {narx} so'm")
+
+# Quyidagi dasturda bir nechta mantiqiy xatolar bor. 
+# Jumladan, xusisiy holatlarda tsikl abadiy qaytarilib qolmoqda. 
+# Xatolarni to'g'rilay olasizmi?
+# BERILGAN: 
+# savol ="Kiritilgan sonning ildizini qaytaruvchi dastur.\n"
+# savol += "Musbat son kiriting "
+# savol += "(dasturni to'xtatish uchun 'exit' deb yozing): "
+
+# while True:
+#     qiymat = input(savol)
+#     if qiymat<0:
+#         continue
+#     elif qiymat=='Exit':
+#         break
+#     else:
+#         ildiz = float(qiymat)**(0.5)
+#         print(f"{qiymat} ning ildizi {ildiz} ga teng")
+
+savol ="Kiritilgan sonning ildizini qaytaruvchi dastur.\n"
+savol += "Musbat son kiriting "
+savol += "(dasturni to'xtatish uchun 'exit' deb yozing): "
+
+while True:
+    qiymat = input(savol)
+    if qiymat=='exit':
         break
-for kitob in kitoblar:
-    print(kitob)
+    elif float(qiymat)<0:
+        continue # agar foydalanuvchi manfiy son kiritsa tsiklni takrorlaymiz
+    else:
+        ildiz = float(qiymat)**(0.5)
+        print(f"{qiymat} ning ildizi {ildiz} ga teng")
+    
