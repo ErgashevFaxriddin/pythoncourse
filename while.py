@@ -128,17 +128,302 @@
 #         ildiz = float(qiymat)**(0.5)
 #         print(f"{qiymat} ning ildizi {ildiz} ga teng")
 
-savol ="Kiritilgan sonning ildizini qaytaruvchi dastur.\n"
-savol += "Musbat son kiriting "
-savol += "(dasturni to'xtatish uchun 'exit' deb yozing): "
+# savol ="Kiritilgan sonning ildizini qaytaruvchi dastur.\n"
+# savol += "Musbat son kiriting "
+# savol += "(dasturni to'xtatish uchun 'exit' deb yozing): "
 
+# while True:
+#     qiymat = input(savol)
+#     if qiymat=='exit':
+#         break
+#     elif float(qiymat)<0:
+#         continue # agar foydalanuvchi manfiy son kiritsa tsiklni takrorlaymiz
+#     else:
+#         ildiz = float(qiymat)**(0.5)
+#         print(f"{qiymat} ning ildizi {ildiz} ga teng")
+
+# # 1 dan 10 gacha bo‘lgan sonlarni ekranga chiqaruvchi dastur tuzing.
+# son = 1
+# while son <= 10:
+#     print(son)
+#     son += 1
+
+# # 2 dan 10 gacha bo‘lgan juft sonlarni ekranga chiqaruvchi dastur tuzing.
+# son = 0
+# while son <= 10:
+#     if son % 2 == 0:
+#         print(son)
+#     son += 1
+
+# # 10 dan 1 gacha bo‘lgan sonlarni kamayish tartibida ekranga chiqaruvchi dastur tuzing
+# son = 10
+# while son > 0:
+#     print(son)
+#     son -= 1
+
+# # Foydalanuvchi "stop" deb yozmaguncha so‘rov beruvchi dastur tuzing.
+# mevalar = []
+# ishora = True
+# while ishora:
+#     print('meva kiriting')
+#     meva = input('toxtatish x: ').lower()
+#     mevalar.append(meva)
+#     if meva == 'x':
+#         print(", ".join(mevalar))
+#         break
+
+# mevalar = []
+# ishora = True
+# while ishora:
+#     print('meva kiriting')
+#     meva = input('toxtatish x: ').lower()
+#     mevalar.append(meva)
+#     if meva == 'x':
+#         break
+# print(", ".join(mevalar))
+
+# ismlar = []
+# son = 1
+# while True:
+#     ism = input(f'{son}-kiriting: ')
+#     ismlar.append(ism)
+#     javob = input('yanami? ')
+#     if javob == 'ha':
+#         son+=1
+#         continue
+#     else:
+#         break
+# print(", ".join(ismlar))
+
+# print('dostlaringiz yoshini aniqlaymiz')
+# dostlar = {}
+# ishora = True
+# while ishora:
+#     ism = input('ism: ').lower()
+#     yosh = input('yosh: ')
+#     dostlar[ism] = int(yosh)
+#     javob = input('yanami? ha/yoq: ')
+#     if javob == 'yoq':
+#         ishora = False
+# for ism, yosh in dostlar.items():
+#     print(f"{ism.title()} {yosh} yoshda")
+
+# print('bozorlik')
+# mahsulotlar = {}
+# ishora = True
+# while ishora:
+#     mahsulot = input('mahsulot: ')
+#     narx = input('narx: ')
+#     if not narx.isdigit():
+#         print('matn kiriting: ')
+#         continue
+#     mahsulotlar[mahsulot] = int(narx)
+#     sikl = input('davom ettirasizmi? ha/yoq: ')
+#     if sikl == 'yoq':
+#         ishora = False
+# for mahsulot, narx in mahsulotlar.items():
+#     print(f"{mahsulot.title()}: {narx} som")
+
+# talabalar = ['ali', 'vali', 'samandar', 'ahad', 'ibrohim']
+# baholangan_talabalar = {}
+# while talabalar:
+#     talaba = talabalar.pop()
+#     baho = input(f"{talaba.title()}ning ning bahosi: ")
+#     print(f"{talaba.title()} baholandi")
+#     baholangan_talabalar[talaba] = baho
+# print(", ".join(baholangan_talabalar).title())
+
+# # mahsulotlar narxini aniqlashda yordam bering
+# mahsulotlar = ['pomidor', 'kartoshka', 'quruq-choy']
+# narxlangan_mahsulotlar = {}
+# while mahsulotlar:
+#     mahsulot = mahsulotlar.pop()
+#     narx = input(f"{mahsulot}ga narx bering: ")
+#     if not narx.isdigit():
+#         print('❌RAQAM KIRITING❌')
+#         break
+#     if int(narx) < 1000:
+#         print(f"{mahsulot}ning qiymati juda oz\nQayta tekshiring: ")
+#         continue
+#     narxlangan_mahsulotlar[mahsulot] = narx
+# for mahsulot, narx in narxlangan_mahsulotlar.items():
+#     print(f"{mahsulot.title()}: {narx} som")
+
+# Foydalanuvchidan buyurtma qabul qiluvchi dastur yozing. 
+# Mahsulotlar nomini birma-bir qabul qilib, yangi ro'yxatga joylang.
+# buyurtmalar = []
+# while True:
+#     buyurtma = input('mahsulot nomi: ')
+#     if not buyurtma:
+#         break
+#     buyurtmalar.append(buyurtma)
+#     print(f"{buyurtma} buyurtmalarga qoshildi✅")
+#     soni = input('yana mahsulot qoshasizmi? "ha/yoq"')
+#     if soni == 'ha':
+#         continue
+#     else:
+#         break
+# print("sizning savatchangiz: ", ", ".join(buyurtmalar).title())
+
+# # tepadagi kod dictionary yordamida
+# buyurtmalar = {}
+# while True:
+#     buyurtma = input('mahsulot nomi: ')
+#     narx = input('narx: ')
+#     buyurtmalar[buyurtma] = int(narx)
+#     print(f"{buyurtma} buyurtmalarga qoshildi✅")
+#     soni = input('yana mahsulot qoshasizmi? "ha/yoq"')
+#     if soni == 'ha':
+#         continue
+#     else:
+#         break
+# print('sizning savatchangiz')
+# for mahsulot, narx in buyurtmalar.items():
+#     print(f"{mahsulot.title()}: {narx} som")
+# yigindi_narx = sum((buyurtmalar.values()))
+# print(f"umumiy xarajat summasi: {yigindi_narx}")
+
+
+# Musbat sonlarni qabul qilish, manfiy son kiritsak siklni to‘xtatish
+# while True:
+#     son = input('son: ')
+#     son = int(son)
+#     if son < 0:
+#         break
+
+# # Juft sonlarni chiqarish, toq sonlarga kelganda siklni davom ettirish (continue).
+# while True:
+#     for son in range(1, 11):
+#         if son % 2 != 0:
+#             continue
+#         print(son)
+#     break
+
+# Berilgan sonni teskari tartibda ekranga chiqarish (masalan, 123 → 321).
+# while True:
+#     son = 123
+#     bir = son % 10
+#     on = son // 10 % 10
+#     yuz = son // 100
+#     print(yuz, on, bir)
+#     break
+
+# teskari_son = []
+# while son > 0:
+#     son = input('son kiriting: ')
+#     birlik = son % 10
+#     teskari_son.append(teskari_son)
+#     onlik = son // 10 % 10
+#     teskari_son.append(onlik)
+#     yuzlik = son // 100
+#     teskari_son.append(yuzlik)
+#     print(", ".join(teskari_son))
+#     break
+
+# son = int(input("Son kiriting: "))  
+# teskari_son = 0  
+# while son > 0:
+#     qoldiq = son % 10  # Oxirgi raqamni olish
+#     teskari_son = teskari_son * 10 + qoldiq  # Teskari tartibda yig‘ish
+#     son = son // 10  # Oxirgi raqamni olib tashlash
+# print("Teskari son:", teskari_son)
+
+
+
+# # Mevalar ro‘yxatini foydalanuvchidan kiritib olish va oxirida ekranga chiqarish
+# mevalar = []
+
+# while True:
+#     sanoq = int(input('nechta meva kiritmoqchisiz? '))
+
+#     for i in range(sanoq):
+#         meva = input(f"{i+1}-meva: ").lower()
+#         mevalar.append(meva)
+
+#     print(f"savatchaningiz: {", ".join(mevalar)}")
+#     break
+
+# __________________________________________________________________________________________________
+
+# # Mahsulotlar lug‘atini to‘ldirish (mahsulot nomi va narxi), foydalanuvchi ‘stop’ kiritganda to‘xtatish.
+# mahsulotlar = {}
+
+# while True:
+#     mahsulot = input('mahsulot kiriting: ')
+#     narx = input('narx: ')
+
+#     if not narx.isdigit():
+#         print('narxni raqamlar bilan kiriting! : ')
+#         continue
+
+#     mahsulotlar[mahsulot] = int(narx)
+
+#     davom = input('davom ettirasizmi? (ha/yoq): ')
+#     if davom == 'yoq':
+#         break
+
+# print('bozorlik royxati')
+# for mahsulot, narx in mahsulotlar.items():
+#     print(f"{mahsulot.title()}: {narx} som")
+
+# ____________________________________________________________________________________
+
+# oshoxona uchun menu
+buyurtmalar = {}
+
+menu = {
+    "osh": 30000,
+    "manti": 12000,
+    "somsa": 8000,
+    "shashlik": 15000,
+    "norin": 25000,
+    "mastava": 18000,
+    "lag'mon": 22000,
+    "shurva": 20000,
+    "tandir go'sht": 35000,
+    "chuchvara": 16000
+}
 while True:
-    qiymat = input(savol)
-    if qiymat=='exit':
-        break
-    elif float(qiymat)<0:
-        continue # agar foydalanuvchi manfiy son kiritsa tsiklni takrorlaymiz
+    son = 0
+    print("Menu")
+    for taom, narx in menu.items():
+        son += 1
+        print(f"{son}| {taom.title()}: {narx} som")
+
+    # savol = input('\nbuyurtma kiritasizmi? (ha/yoq): ').strip().lower()
+
+    # if savol.isdigit():
+    #     print("❌ matn kiriting ❌")
+    #     continue
+
+    # if savol != 'ha':
+    #     break
+
+    buyurtma = input('👇 taom kiriting: ').strip().lower()
+    if buyurtma.isdigit():
+        print('❌Matn kiriting❌ : ')
+        continue
+
+    if buyurtma in menu:
+        buyurtmalar[buyurtma] = menu[buyurtma]
+        print(" ✅buyurtma qabul qilindi")
     else:
-        ildiz = float(qiymat)**(0.5)
-        print(f"{qiymat} ning ildizi {ildiz} ga teng")
-    
+        print(f" ❌{buyurtma.title()} mavjud emas❌ ")
+        continue
+
+    davom = input('davom ettirasizmi? (ha/yoq): ')
+    if davom == 'yoq':
+        print('dastur toxtatildi')
+        break
+
+if buyurtmalar:
+    print("👇 buyurtmalaringiz 👇")
+    for buyurtma, narx in buyurtmalar.items():
+        print(f"{buyurtma.title()}: {narx} som ")
+        print(f"umumiy summa: {sum(buyurtmalar.values())} som")
+else:
+    print("buyurtma berilmadi")
+
+# ______________________________________________________________________________
+# Baholarni ro‘yxatga kiritish va o‘rtacha bahoni hisoblash.
+talabalar = []
