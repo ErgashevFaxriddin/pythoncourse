@@ -369,7 +369,62 @@
 # ____________________________________________________________________________________
 
 # oshoxona uchun menu
-buyurtmalar = {}
+# buyurtmalar = {}
+
+# menu = {
+#     "osh": 30000,
+#     "manti": 12000,
+#     "somsa": 8000,
+#     "shashlik": 15000,
+#     "norin": 25000,
+#     "mastava": 18000,
+#     "lag'mon": 22000,
+#     "shurva": 20000,
+#     "tandir go'sht": 35000,
+#     "chuchvara": 16000
+# }
+# while True:
+#     son = 0
+#     print("Menu")
+#     for taom, narx in menu.items():
+#         son += 1
+#         print(f"{son}| {taom.title()}: {narx} som")
+
+#     # savol = input('\nbuyurtma kiritasizmi? (ha/yoq): ').strip().lower()
+
+#     # if savol.isdigit():
+#     #     print("❌ matn kiriting ❌")
+#     #     continue
+
+#     # if savol != 'ha':
+#     #     break
+
+#     buyurtma = input('👇 taom kiriting: ').strip().lower()
+#     if buyurtma.isdigit():
+#         print('❌Matn kiriting❌ : ')
+#         continue
+
+#     if buyurtma in menu:
+#         buyurtmalar[buyurtma] = menu[buyurtma]
+#         print(" ✅buyurtma qabul qilindi")
+#     else:
+#         print(f" ❌{buyurtma.title()} mavjud emas❌ ")
+#         continue
+
+#     davom = input('davom ettirasizmi? (ha/yoq): ')
+#     if davom == 'yoq':
+#         print('dastur toxtatildi')
+#         break
+
+# if buyurtmalar:
+#     print("👇 buyurtmalaringiz 👇")
+#     for buyurtma, narx in buyurtmalar.items():
+#         print(f"{buyurtma.title()}: {narx} som ")
+#         print(f"umumiy summa: {sum(buyurtmalar.values())} som")
+# else:
+#     print("buyurtma berilmadi")
+
+# # ______________________________________________________________________________
 
 menu = {
     "osh": 30000,
@@ -383,47 +438,124 @@ menu = {
     "tandir go'sht": 35000,
     "chuchvara": 16000
 }
+
+buyurtmalar = {}
+
+gramm_taomlar = {"osh", "norin"}
+dona_taomlar = {"manti", "shashlik", "somsa", "tandir go'sht"}
+kosa_taomlar = {"mastava", "lag'mon", "shurva", "chuchvara"}
+
+olchov_birliklari = {
+    "g": 1,
+    "gramm": 1,
+    "kg": 1000,
+    "kilogramm": 1000,
+    "s": 100000,
+    "sentner": 100000,
+    "t": 1000000,
+    "tonna": 1000000
+}
+
 while True:
-    son = 0
-    print("Menu")
-    for taom, narx in menu.items():
-        son += 1
-        print(f"{son}| {taom.title()}: {narx} som")
-
-    # savol = input('\nbuyurtma kiritasizmi? (ha/yoq): ').strip().lower()
-
-    # if savol.isdigit():
-    #     print("❌ matn kiriting ❌")
-    #     continue
-
-    # if savol != 'ha':
-    #     break
-
-    buyurtma = input('👇 taom kiriting: ').strip().lower()
-    if buyurtma.isdigit():
-        print('❌Matn kiriting❌ : ')
+    print("\n📜 MENU 📜")
+    for i, (taom, narx) in enumerate(menu.items(), start=1):
+        print(f"{i}. {taom.title()}: {narx} som")
+    
+    buyurtma = input('\n👇 Taom kiriting: ').strip().lower()
+    
+    if buyurtma not in menu:
+        print(f" ❌ {buyurtma.title()} mavjud emas ❌ ")
         continue
-
-    if buyurtma in menu:
-        buyurtmalar[buyurtma] = menu[buyurtma]
-        print(" ✅buyurtma qabul qilindi")
-    else:
-        print(f" ❌{buyurtma.title()} mavjud emas❌ ")
-        continue
-
-    davom = input('davom ettirasizmi? (ha/yoq): ')
+    
+    while True:
+        if buyurtma in gramm_taomlar:
+            miqdor_olchov = input(f"{buyurtma.title()} miqdorini kiriting (masalan: 500 g, 1.5 kg, 1 tonna): ").strip().lower()
+            
+            try:
+                miqdor, birlik = miqdor_olchov.split()
+                miqdor = float(miqdor)
+                birlik = birlik.lower()
+                if birlik not in olchov_birliklari:
+                    raise ValueError
+                miqdor *= olchov_birliklari[birlik]
+            except (ValueError, IndexError):
+                print("❌ Iltimos, to'g'ri miqdor va birlik kiriting (masalan: 500 g, 1.5 kg, 1 tonna) ❌")
+                continue
+        
+        elif buyurtma in dona_taomlar:
+            birlik = "dona"
+            miqdor = input(f"{buyurtma.title()} necoha {birlik} buyurtma qilasiz? ").strip()
+        else:
+            birlik = "kosa"
+            miqdor = input(f"{buyurtma.title()} necha {birlik} buyurtma qilasiz? ").strip()
+        
+        try:
+            miqdor = float(miqdor)
+        except ValueError:
+            print("❌ Iltimos, to'g'ri son kiriting ❌")
+            continue
+        break
+    
+    buyurtmalar[buyurtma] = buyurtmalar.get(buyurtma, 0) + miqdor
+    print("✅ Buyurtma qabul qilindi")
+    
+    davom = input('Davom ettirasizmi? (ha/yoq): ').strip().lower()
     if davom == 'yoq':
-        print('dastur toxtatildi')
+        print("Dastur to'xtatildi")
         break
 
 if buyurtmalar:
-    print("👇 buyurtmalaringiz 👇")
-    for buyurtma, narx in buyurtmalar.items():
-        print(f"{buyurtma.title()}: {narx} som ")
-        print(f"umumiy summa: {sum(buyurtmalar.values())} som")
+    umumiy_summa = 0
+    print("\n👇 Buyurtmalaringiz 👇")
+    for taom, miqdor in buyurtmalar.items():
+        birlik = "gramm" if taom in gramm_taomlar else ("dona" if taom in dona_taomlar else "kosa")
+        narx = (menu[taom] / 1000) * miqdor if taom in gramm_taomlar else menu[taom] * miqdor
+        umumiy_summa += narx
+        print(f"{taom.title()} ({miqdor} {birlik}): {narx:.2f} som")
+    print(f"\n💰 Umumiy summa: {umumiy_summa:.2f} som")
 else:
-    print("buyurtma berilmadi")
+    print("📌 Buyurtma berilmadi")
 
-# ______________________________________________________________________________
-# Baholarni ro‘yxatga kiritish va o‘rtacha bahoni hisoblash.
-talabalar = []
+# __________________________________________________________________________________________________________________
+
+# # while yordamida 5 marta salom sozini yozish
+# soz = 'salom'
+# son = 0
+# while son < 20:
+#     print(f"{son}: salom")
+#     son += 3
+
+# _____________________________________________________________________________________________________________________
+# # parol
+# # 1️⃣ while True – Cheksiz tsikl yoki Foydalanuvchi Kiritishini Kutish
+# # 📌 Qachon ishlatish kerak?
+# # ✅ Agar cheksiz tsikl kerak bo‘lsa
+# # ✅ Foydalanuvchidan kiritish olish va shart bajarilmaguncha tsikl davom etishi kerak bo‘lsa
+
+# while True:
+#     parol = input('parol: ')
+#     if parol == ".;'.":
+#         print('xush galidiniz')
+#         break
+#     else:
+#         print('Noto\'g\'ri parol, qayta urinib ko\'ring.')
+# _________________________________________________________________________________________________________________
+# # # Siz while yordamida bitta list ichidagi ma’lumotlarni olib, boshqa listga ko‘chirishingiz mumkin.
+# # laptops = ['asus', 'msi', 'mac', 'hp']
+# # new_laptops = []
+# # while laptops:
+# #     computer = laptops.pop(0)
+# #     new_laptops.append(computer)
+# # print(f"new list: {", ".join(new_laptops)}")
+# # print(f"old list: {", ".join(laptops)}")
+
+# bitiruvchi_talabalar = ['ali', 'vali', 'asad', 'abubakir']
+# yangi_talabalar = []
+# while bitiruvchi_talabalar:
+#     talaba = bitiruvchi_talabalar.pop(0)
+#     yangi_talabalar.append(talaba)
+# print(f"yangi talabalar: {", ".join(yangi_talabalar).title().replace(", ", " ")}")
+# print(f"eski talabalar: {bitiruvchi_talabalar}")
+
+# ___________________________________________________________________________________________________
+# 
