@@ -556,6 +556,3 @@ else:
 #     yangi_talabalar.append(talaba)
 # print(f"yangi talabalar: {", ".join(yangi_talabalar).title().replace(", ", " ")}")
 # print(f"eski talabalar: {bitiruvchi_talabalar}")
-
-# ___________________________________________________________________________________________________
-# 
