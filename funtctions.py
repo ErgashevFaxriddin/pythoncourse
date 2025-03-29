@@ -219,16 +219,229 @@
 #     print("Iltimos, faqat butun sonlar kiriting!")
 # _________________________________________________________________________________
 
-# Agar funksiyaga kalit so'z - qiymat ko'rinishidagi argumentlarni uzatish talab qilinsa, 
-# va bunday parametrlar soni noma'lum bo'lsa, argument oldidan ikkita yulduzcha qo'yiladi (**kwargs).
+# # Agar funksiyaga kalit so'z - qiymat ko'rinishidagi argumentlarni uzatish talab qilinsa, 
+# # va bunday parametrlar soni noma'lum bo'lsa, argument oldidan ikkita yulduzcha qo'yiladi (**kwargs).
 
-def comp_info(model, protsessor, **infos):
-    infos['model'] = model
-    infos['protsessor'] = protsessor
-    return infos
+# def comp_info(model, protsessor, **infos):
+#     while True:
+#         comps = {}
+#         infos['model'] = model
+#         infos['protsessor'] = protsessor
+#         return infos
 
-comp = comp_info('msi', '8', color='black', storage='256')
-comp2 = comp_info('macbook', 'm3', color='white', storage='1 TB')
+# # comp = comp_info('msi', '8', color='black', storage='256')
+# # comp2 = comp_info('macbook', 'm3', color='white', storage='1 TB')
 
-for key, value in comp.items():
-    print(f"{key.title()}: {value.title()}")
+
+
+# for key, value in comp.items():
+#     print(f"{key.title()}: {value.title()}")
+# ____________________________________________________________________
+
+# sonlar = [1, 3, 44, 3, 7]
+# print(*sonlar)
+
+# muzikantlar = ['sirojiddin', 'mirolim', 'abduqahhor', 'nurali']
+# print(*muzikantlar)
+# ___________________________________________________________________
+# *ARGS vs **KWARGS ___ *ARGS vs **KWARGS ___ *ARGS vs **KWARGS ___ *ARGS vs **KWARGS
+
+# def zakaz_osh(osh, *qoshimchalar):
+#     print(f"{osh}ga qoshimchalar: ")
+#     for qoshimcha in qoshimchalar:
+#         print(f" - {qoshimcha}")
+
+# zakaz_osh('osh', 'manti', 'salat')
+
+# def dokon(asosiy, *qoshimchalar, **malumotlar):
+#     print(f"{asosiy.title()} mahsulotiga qoshimchalar: ")
+#     for qoshimcha in qoshimchalar:
+#         print(f" - {qoshimcha.title()}")
+#     print('buyurtma ma\'lumotlari: ')
+#     for key, value in malumotlar.items():
+#         print(f"{key.title()}: {value}")
+
+# dokon('sovun', 'gugurt', 'piyoz', yetkazib_berish = True, raqam = 123)
+# _________________________________________________________________________________
+# # Istalgancha sonlarni qabul qilib, ularning ko'paytmasini qaytaruvchi funksiya yozing
+
+# def kopaytir(son, *sonlar):
+#     javob = son
+#     for s in sonlar:
+#         if s == 'stop':
+#             break
+#         javob *= s
+#     print(f"Natija: {javob}")
+
+# kopaytir(12, 3, 4, 'stop')
+
+# def qosh(son, *sonlar):
+#     javob = son
+#     for i in sonlar:
+#         if i == 'stop':
+#             break
+#         javob += i
+#     print(f"natija: {javob}")
+
+# qosh(4, 1, 3, 10)
+
+# def kwargs(**info):
+#     for key, value in info.items():
+#         print(f"{key.title()}: {value}")
+        
+# kwargs(name='faxriddin'.title(), age=21, hobby='playing piano'.title())
+# ___________________________________________________________________
+# Funksiya yozing, u talabaning ismi, yoshi va universitetini qabul qilib, 
+# ekranga chiqarishi kerak.
+
+# def talaba_info(ism, yosh, universitet, **talabalar):
+#     talabalar['ism'] = ism.title()
+#     talabalar['yosh'] = yosh
+#     talabalar['universitet'] = universitet.upper()
+#     return talabalar
+
+# talaba1 = talaba_info('najmiddin', 20, 'tatuff', hobby='Football')
+# for key, value in talaba1.items():
+#     print(f"{key.title()}: {value}")
+# ________________________________________________________________________________
+# # Funksiya mashinaning turi, rangi va yili haqida ma’lumot chiqarishi kerak.
+
+# def car_info(**kwargs):
+#     for key, value in kwargs.items():
+#         print(f"{key.title()}: {value.title()}")
+
+# malumotlar = {}
+# while True:
+#     kalit = input('so\'z kiriting: ')
+#     print('dasturni to\'xtatish uchun: (x)')
+#     if kalit == 'x'.lower():
+#         break
+#     qiymat = input('qiymat kiriting: ')
+#     malumotlar[kalit] = qiymat
+    
+# car_info(**malumotlar)
+# ____________________________________________________________________
+# # Funksiya mahsulot nomlari va narxlarini qabul qilib, ularni chiqarishi kerak
+# def dokon(**kwargs):
+#     for key, value in kwargs.items():
+#         print(f"{key.title()}: {value}")
+        
+# mahsulotlar = {}
+# while True:
+#     print('dasturni to\'xtatish uchun: (x)')
+#     kalit = input('mahsulot: ')
+#     if kalit == 'x':
+#         break
+#     qiymat = input('qiymat: ')
+#     mahsulotlar['kalit'] = qiymat
+    
+# dokon(**mahsulotlar)
+#_______________________________________________________________
+# # talaba malumotlari 
+# def talaba_info(ism, yosh, universitet, **talabalar):
+#     talabalar['ism'] = ism.title()
+#     talabalar['yosh'] = yosh
+#     talabalar['universitet'] = universitet.upper()
+#     return talabalar
+
+# print("Talaba ma'lumotlarini kiriting:")
+# ism = input("Ism: ")
+# yosh = int(input("Yosh: "))
+# universitet = input("Universitet: ")
+
+# talaba1 = talaba_info(ism, yosh, universitet)
+
+# while True:
+#     kalit = input("Qo'shimcha ma'lumot nomini kiriting (to'xtatish uchun 'x'): ")
+#     if kalit.lower() == 'x':
+#         break
+#     qiymat = input(f"{kalit.title()} qiymatini kiriting: ")
+#     talaba1[kalit] = qiymat
+
+# for key, value in talaba1.items():
+#     print(f"{key.title()}: {value}")
+# __________________________________________________________________________________
+# # mashina malumotlar
+# def car_info2(model, **malumotlar):
+#     malumotlar['model'] = model
+#     return malumotlar
+
+# print('mashina ma\'lumotlarini kiriting ')
+# model = input('model: ')
+# car1 = car_info2(model)
+
+# while True:
+#     kalit = input('qoshimcha (stop: "x")')
+#     if kalit == 'x':
+#         break
+#     qiymat = input('qiymat: ')
+#     car1['kalit'] = qiymat
+    
+# for key, value in car1.items():
+#     print(f"{key.title()}: {value}")
+# ________________________________________________________________________________
+# # ishchilar
+# def ishchilar(ism, id, kasb, **kwargs):
+#     kwargs['ism'] = ism
+#     kwargs['id'] = id
+#     kwargs['kasb'] = kasb
+#     return kwargs
+
+# print(f"ishchilar ma\'lumotlarini kiriting")
+# ism = input('ism: ')
+# id = input('id: ')
+# kasb = input('kasb: ')
+
+# ishchi1 = ishchilar(ism, id, kasb)
+
+# while True:
+#     kalit = input('qoshimcha (stop: "x")')
+#     if kalit == 'x':
+#         break
+#     qiymat = input('qiymat: ')
+#     ishchi1[kalit] = qiymat
+
+# print('Ishchi')
+# for key, value in ishchi1.items():
+#     print(f"{key.title()}: {value}")
+
+
+
+
+
+
+
+
+
+
+# _____________________________________________________________________________________
+# sportchilar
+
+def sportchilar(ism, yosh, sport_turi, **kwargs):
+    kwargs['ism'] = ism
+    kwargs['yosh'] = yosh
+    kwargs['sport turi'] = sport_turi
+    return kwargs
+
+ism = input('ism: ').title()
+yosh = int(input('yosh: '))
+sport_turi = input('sport turi: ').title()
+
+sportchi1 = sportchilar(ism, yosh, sport_turi)
+
+while True:
+    kalit = input('qoshimcha (stop - x): ')
+    if kalit == 'x':
+        break
+    
+    qiymat = input(f"{kalit} uchun qiymat: ")
+    
+    if qiymat.isdigit():
+        qiymat = int(qiymat)
+    else:
+        qiymat = qiymat.title()
+    
+    sportchi1[kalit] = qiymat
+    
+for key, value in sportchi1.items():
+    print(f"{key.title()}: {value}")

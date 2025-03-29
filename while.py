@@ -503,7 +503,7 @@ while True:
     if davom == 'yoq':
         print("Dastur to'xtatildi")
         break
-
+ 
 if buyurtmalar:
     umumiy_summa = 0
     print("\n👇 Buyurtmalaringiz 👇")
