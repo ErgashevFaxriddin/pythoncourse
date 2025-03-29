@@ -415,33 +415,76 @@
 
 
 # _____________________________________________________________________________________
-# sportchilar
+# # sportchilar ma'lumotni yigadian funksiya
 
-def sportchilar(ism, yosh, sport_turi, **kwargs):
+# def sportchilar(ism, yosh, sport_turi, **kwargs):
+#     kwargs['ism'] = ism
+#     kwargs['yosh'] = yosh
+#     kwargs['sport turi'] = sport_turi
+#     return kwargs
+
+# ism = input('ism: ').title()
+# yosh = int(input('yosh: '))
+# sport_turi = input('sport turi: ').title()
+
+# sportchi1 = sportchilar(ism, yosh, sport_turi)
+
+# while True:
+#     kalit = input('qoshimcha (stop - x): ')
+#     if kalit == 'x':
+#         break
+    
+#     qiymat = input(f"{kalit} uchun qiymat: ")
+    
+#     if qiymat.isdigit():
+#         qiymat = int(qiymat)
+#     else:
+#         qiymat = qiymat.title()
+    
+#     sportchi1[kalit] = qiymat
+    
+# for key, value in sportchi1.items():
+#     print(f"{key.title()}: {value}")
+# _____________________________________________________________________________________
+# oqituvchilar haqida malumotlarni foydalanuvchidan saqlab oluvchi funksiya
+
+def oqituvchi(ism, familiya, sharif, yosh, fan, **kwargs):
     kwargs['ism'] = ism
+    kwargs['familiya'] = familiya
+    kwargs['sharif'] = sharif
     kwargs['yosh'] = yosh
-    kwargs['sport turi'] = sport_turi
+    kwargs['fan'] = fan
     return kwargs
 
-ism = input('ism: ').title()
-yosh = int(input('yosh: '))
-sport_turi = input('sport turi: ').title()
-
-sportchi1 = sportchilar(ism, yosh, sport_turi)
+try:
+    ism = input('ism: ').lower()
+    familiya = input('familiya: ').lower()
+    sharif = input('sharif: ').lower()
+    yosh = input('yosh: ')
+    fan = input('fan: ').lower()
+except ValueError:
+    print('xatolik')
+    exit()
+    
+oqituvchi1 = oqituvchi(ism, familiya, sharif, yosh, fan)
 
 while True:
-    kalit = input('qoshimcha (stop - x): ')
+    kalit = input('qoshimcha (stop - "x"): ')
     if kalit == 'x':
         break
     
     qiymat = input(f"{kalit} uchun qiymat: ")
     
-    if qiymat.isdigit():
-        qiymat = int(qiymat)
-    else:
-        qiymat = qiymat.title()
-    
-    sportchi1[kalit] = qiymat
-    
-for key, value in sportchi1.items():
+    try:
+        if qiymat.isdigit():
+            qiymat = int(qiymat)
+        else:
+            qiymat = qiymat.title()
+    except ValueError as e:
+        print(f"xatolik: {e}")
+        continue
+        
+    oqituvchi1[kalit] = qiymat
+
+for key, value in oqituvchi1.items():
     print(f"{key.title()}: {value}")
